@@ -1,10 +1,84 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fi">
+
 <head>
     <meta charset="UTF-8">
-    <title>ksenia</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KittyCat - Lentomatkapeli</title>
+    <link rel="stylesheet" href="kitty.css">
 </head>
+
 <body>
+
+<div class="container">
+
+    <nav class="top-menu">
+        <button id="button1"> Catcoin</button>
+        <button id="button2">️ Matkat</button>
+        <button id="button3">Takaisin</button>
+    </nav>
+
+    <main class="blue-area">
+
+        <!-- ALKUNÄKYMÄ -->
+        <div id="homeView" class="welcome">
+            <h1>✈ Tervetuloa lentomatkapeliin!</h1>
+            <p>Valitse ylävalikosta Catcoin tai Matkat.</p>
+            <div class="cloud-decoration">️</div>
+        </div>
+
+        <!-- TIETOVISA -->
+        <div id="gameView" class="game-layout hidden">
+
+            <div class="side-menu">
+                <h2>Vaikeustaso</h2>
+                <button id="buttonEasy">Helppo</button>
+                <button id="buttonHard">Vaikea</button>
+            </div>
+
+            <div id="questionPanel" class="question-panel hidden">
+
+                <h2 id="categoryTitle">Catcoin</h2>
+                <p id="difficultyTitle">Helppo</p>
+                <p id="questionNumber">Kysymys 1 / 20</p>
+
+                <div class="question-box">
+                    <h3 id="questionText"></h3>
+                </div>
+
+                <input
+                    type="text"
+                    id="answerInput"
+                    placeholder="Kirjoita vastauksesi..."
+                >
+
+                <button id="checkButton">Tarkista vastaus</button>
+
+                <p id="feedback"></p>
+
+                <button id="nextButton" class="hidden">
+                    Seuraava kysymys →
+                </button>
+
+            </div>
+        </div>
+
+        <!-- MENNEET MATKAT -->
+        <div id="tripsView" class="trips-view hidden">
+
+            <h1>✈ Menneet matkat</h1>
+            <p class="trip-intro">Tässä näet aikaisemmat matkasi!</p>
+
+            <div id="tripList" class="trip-list"></div>
+
+        </div>
+
+    </main>
+
+</div>
+
+<script src="kitty.js"></script>
 
 </body>
 </html>
