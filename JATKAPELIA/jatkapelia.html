@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jatka peliä | Kitty Cat Traveler</title>
+  <link rel="stylesheet" href="jatkapelia.css">
+    <script src="jatkapelia.js" defer></script>
+</head>
+<body>
+  <main class="sheet">
+    <header class="top">
+      <a class="back" href="index.html">← Takaisin</a>
+      <span class="brand">KITTY CAT TRAVELER GAME ♡</span>
+    </header>
+
+    <div class="cloud">
+      <p>Jos jatkaa</p>
+      <h1>Jatko?</h1>
+    </div>
+
+    <div class="content">
+      <div class="cat-card">
+        <svg class="cat" viewBox="0 0 280 260" role="img" aria-label="Suloinen kissa">
+          <g stroke="#312a31" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M60 98 49 31 103 72 Q140 60 179 74 L235 31 221 100 Q250 127 242 172 Q231 231 145 235 Q61 236 42 181 Q28 136 60 98Z" fill="#ffeaf3"/>
+            <path d="M59 76 57 46 88 73Z M225 77 227 46 195 74Z" fill="#f6a6c8" stroke-width="2"/>
+            <ellipse cx="102" cy="146" rx="19" ry="25" fill="#312a31" stroke="none"/>
+            <ellipse cx="179" cy="146" rx="19" ry="25" fill="#312a31" stroke="none"/>
+            <circle cx="109" cy="139" r="6" fill="white" stroke="none"/>
+            <circle cx="186" cy="139" r="6" fill="white" stroke="none"/>
+            <path d="M129 176 Q141 168 153 176 L141 185Z" fill="#312a31" stroke-width="2"/>
+            <path d="M141 184 Q132 201 120 192 M141 184 Q150 201 162 192" fill="none" stroke-width="3"/>
+            <path d="M61 177 16 165 M61 192 12 196 M222 177 264 165 M221 192 268 196" fill="none" stroke-width="3"/>
+          </g>
+        </svg>
+        <p>Tervetuloa takaisin! 🐾</p>
+      </div>
+
+      <section class="note">
+        <h2>Jatka seikkailua</h2>
+        <p>Anna sama nimi, jota käytit aiemmin, ja etsi tallennettu peli.</p>
+        <form id="player-form">
+          <label for="player-name">Anna nimi:</label>
+          <input id="player-name" type="text" maxlength="30" placeholder="Esim. Kisu123" required>
+          <button type="submit">Etsi tallennus</button>
+        </form>
+        <p id="status" class="message" role="status"></p>
+        <a id="next" class="next" href="game.html" hidden>Jatka peliin →</a>
+      </section>
+    </div>
+
+    <footer>♡ Pieni kissa, suuri seikkailu ♡</footer>
+  </main>
+</body>
+</html>

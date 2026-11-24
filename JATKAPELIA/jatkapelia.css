@@ -1,0 +1,126 @@
+
+/* Toinen vaaleanpunainen sivu: Jatka peliä */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f6bad2;
+  color: #312a31;
+  font-family: "Trebuchet MS", Verdana, sans-serif;
+}
+
+.sheet {
+  width: 100%;
+  max-width: 900px;
+  padding: 40px;
+  background: #f6a6c8;
+  border: 3px solid white;
+  border-radius: 26px;
+  box-shadow: 8px 12px 0 #d978a1;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.brand { font-size: 12px; font-weight: bold; letter-spacing: 2px; }
+
+.back {
+  padding: 10px 15px;
+  background: white;
+  border: 2px solid #984268;
+  border-radius: 20px;
+  color: #984268;
+  text-decoration: none;
+  font-weight: bold;
+}
+.back:hover { background: #d7f3b9; }
+
+.cloud {
+  width: fit-content;
+  max-width: 100%;
+  margin: 25px auto;
+  padding: 18px 35px;
+  background: #ffdaea;
+  border: 3px solid #312a31;
+  border-radius: 50px;
+  text-align: center;
+}
+.cloud p { margin: 0; font-size: 14px; font-weight: bold; }
+h1 { margin: 5px 0; font-size: 38px; }
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 40px;
+  margin-top: 30px;
+}
+
+.cat-card {
+  padding: 20px;
+  background: #fff8f2;
+  border: 2px solid #312a31;
+  border-radius: 18px;
+  box-shadow: 7px 8px 0 #d978a1;
+  text-align: center;
+}
+.cat { width: 100%; max-width: 275px; height: auto; }
+.cat-card p { font-size: 15px; font-weight: bold; }
+
+.note {
+  padding: 30px;
+  background: #d7f3b9;
+  border: 2px solid #312a31;
+  border-radius: 15px;
+  box-shadow: 6px 7px 0 #9cb67d;
+}
+.note h2 { margin-top: 0; font-size: 25px; }
+.note p { font-size: 15px; line-height: 1.5; }
+.note label { display: block; margin-bottom: 8px; font-weight: bold; }
+.note input {
+  width: 100%;
+  padding: 13px;
+  border: 2px solid #312a31;
+  border-radius: 10px;
+  font-size: 17px;
+}
+
+button, .next {
+  display: inline-block;
+  width: 100%;
+  margin-top: 14px;
+  padding: 13px;
+  background: white;
+  border: 2px solid #312a31;
+  border-radius: 12px;
+  box-shadow: 3px 4px 0 #312a31;
+  color: #312a31;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+button:hover, .next:hover { background: #ffe6f1; }
+.message { min-height: 20px; font-weight: bold; }
+.message.error { color: #9f2349; }
+.message.success { color: #275e33; }
+[hidden] { display: none !important; }
+footer { margin-top: 35px; text-align: center; font-size: 13px; }
+
+@media (max-width: 650px) {
+  body { padding: 15px; }
+  .sheet { padding: 20px; }
+  .top { flex-wrap: wrap; }
+  .content { grid-template-columns: 1fr; gap: 25px; }
+  h1 { font-size: 30px; }
+}
