@@ -1,10 +1,601 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fi">
 <head>
     <meta charset="UTF-8">
-    <title>ksenia</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Kitty Cat Traveler</title>
+
+    <link rel="stylesheet" href="kitty.css">
+    <script src="kitty.js" defer></script>
 </head>
+
 <body>
+
+<main class="game">
+
+    <!-- Tilaa tulevalle navigointipalkille -->
+
+    <div class="top">
+
+        <h1>Minne matka?</h1>
+
+        <!-- CatCoin -->
+        <div class="coin-area">
+
+            <button class="coin"
+                    id="coinButton"
+                    type="button"
+                    onclick="showBalance()"
+                    aria-label="Näytä rahamäärä"
+                    aria-expanded="false">
+                ¢
+            </button>
+
+            <div class="balance" id="balance" hidden></div>
+
+        </div>
+
+    </div>
+
+    <div class="travel-area">
+
+        <!-- Kissa lentokoneessa -->
+        <div class="plane-wrap">
+
+            <svg class="plane-svg"
+                 viewBox="0 0 600 420"
+                 xmlns="http://www.w3.org/2000/svg"
+                 role="img"
+                 aria-label="Kissa vanhassa lentokoneessa">
+
+                <defs>
+
+                    <linearGradient id="metal"
+                                    x1="0%" y1="0%"
+                                    x2="20%" y2="100%">
+                        <stop offset="0%" stop-color="#fff5e9"/>
+                        <stop offset="50%" stop-color="#ddd5cb"/>
+                        <stop offset="100%" stop-color="#aaa4a2"/>
+                    </linearGradient>
+
+                    <linearGradient id="wing"
+                                    x1="0%" y1="0%"
+                                    x2="0%" y2="100%">
+                        <stop offset="0%" stop-color="#eee8de"/>
+                        <stop offset="100%" stop-color="#bbb4ae"/>
+                    </linearGradient>
+
+                    <radialGradient id="eye">
+                        <stop offset="0%" stop-color="#786657"/>
+                        <stop offset="100%" stop-color="#302c30"/>
+                    </radialGradient>
+
+                </defs>
+
+                <g stroke="#50464c"
+                   stroke-width="3"
+                   stroke-linejoin="round"
+                   stroke-linecap="round">
+
+                    <!-- Takasiipi -->
+                    <path d="M159 195 L85 232
+                             Q75 240 92 240
+                             L195 213 Z"
+                          fill="url(#wing)"/>
+
+                    <!-- Pyrstö -->
+                    <path d="M157 195 L115 105
+                             Q108 90 120 96
+                             Q151 117 190 181 Z"
+                          fill="url(#metal)"/>
+
+                    <path d="M130 130 L159 179"
+                          fill="none" stroke-width="2"/>
+
+                    <!-- Kauempi pääsiipi -->
+                    <path d="M305 212
+                             Q390 139 525 55
+                             Q555 39 570 50
+                             Q576 58 560 75
+                             L393 244 Z"
+                          fill="url(#wing)"/>
+
+                    <path d="M416 140 L450 174
+                             M475 100 L505 119
+                             M516 72 Q540 63 550 76"
+                          fill="none" stroke-width="2"/>
+
+                    <!-- Lentokoneen runko -->
+                    <path d="M142 184
+                             Q198 157 280 159
+                             Q365 158 418 185
+                             Q449 202 452 235
+                             Q453 269 419 287
+                             Q362 303 274 267
+                             L153 216
+                             Q132 205 142 184 Z"
+                          fill="url(#metal)"/>
+
+                    <path d="M147 207
+                             Q250 253 342 273
+                             Q407 288 438 262"
+                          fill="none"
+                          stroke="#a39b9b"
+                          stroke-width="5"/>
+
+                    <path d="M196 173 Q185 202 197 232
+                             M350 169 Q326 215 349 285"
+                          fill="none" stroke-width="2"/>
+
+                    <!-- Ohjaamo -->
+                    <ellipse cx="275" cy="176"
+                             rx="65" ry="28"
+                             fill="#79686d"/>
+
+                    <ellipse cx="275" cy="173"
+                             rx="54" ry="20"
+                             fill="#50464c"/>
+
+                    <!-- Kissan pieni vartalo -->
+                    <ellipse cx="270" cy="153"
+                             rx="31" ry="38"
+                             fill="#fffaf1"/>
+
+                    <!-- Korvat -->
+                    <path d="M211 102
+                             Q202 65 214 45
+                             Q240 52 254 77 Z"
+                          fill="#e1d8cd"/>
+
+                    <path d="M292 77
+                             Q320 49 335 51
+                             Q343 78 325 108 Z"
+                          fill="#e1d8cd"/>
+
+                    <path d="M219 86 L219 59
+                             Q238 68 242 83 Z"
+                          fill="#edb6c4" stroke="none"/>
+
+                    <path d="M305 85
+                             Q318 68 330 63
+                             L324 92 Z"
+                          fill="#edb6c4" stroke="none"/>
+
+                    <!-- Kissan iso pää -->
+                    <path d="M209 101
+                             Q214 75 251 73
+                             Q274 65 298 76
+                             Q330 80 338 112
+                             Q353 146 325 165
+                             Q301 181 269 178
+                             Q229 181 208 157
+                             Q191 135 209 101 Z"
+                          fill="#fffaf1"/>
+
+                    <!-- Harmaat karvakuviot -->
+                    <path d="M220 93
+                             Q239 76 256 80
+                             L250 105
+                             Q229 102 220 93 Z"
+                          fill="#c8bfb6" stroke="none"/>
+
+                    <path d="M263 77
+                             Q274 72 285 77
+                             L276 104 Z"
+                          fill="#c8bfb6" stroke="none"/>
+
+                    <path d="M294 80
+                             Q321 86 329 104
+                             L310 110 Z"
+                          fill="#c8bfb6" stroke="none"/>
+
+                    <path d="M204 125 L224 131
+                             L207 137 Z"
+                          fill="#d5ccc3" stroke="none"/>
+
+                    <path d="M341 125 L323 132
+                             L339 139 Z"
+                          fill="#d5ccc3" stroke="none"/>
+
+                    <!-- Suuret silmät -->
+                    <ellipse cx="245" cy="125"
+                             rx="17" ry="20"
+                             fill="url(#eye)"/>
+
+                    <ellipse cx="300" cy="125"
+                             rx="17" ry="20"
+                             fill="url(#eye)"/>
+
+                    <!-- Silmien heijastukset -->
+                    <circle cx="239" cy="118" r="7"
+                            fill="white" stroke="none"/>
+
+                    <circle cx="294" cy="118" r="7"
+                            fill="white" stroke="none"/>
+
+                    <circle cx="251" cy="134" r="3"
+                            fill="white" stroke="none"/>
+
+                    <circle cx="306" cy="134" r="3"
+                            fill="white" stroke="none"/>
+
+                    <!-- Vaaleanpunaiset posket -->
+                    <ellipse cx="221" cy="146"
+                             rx="10" ry="5"
+                             fill="#f3c5d0" stroke="none"/>
+
+                    <ellipse cx="325" cy="146"
+                             rx="10" ry="5"
+                             fill="#f3c5d0" stroke="none"/>
+
+                    <!-- Nenä ja suu -->
+                    <path d="M267 145
+                             Q274 142 280 145
+                             L274 151 Z"
+                          fill="#d88aa3" stroke-width="1.5"/>
+
+                    <path d="M274 151 L274 155
+                             Q269 162 262 157
+                             M274 155
+                             Q280 162 286 157"
+                          fill="none" stroke-width="2"/>
+
+                    <!-- Viikset -->
+                    <path d="M219 151 L194 147
+                             M220 157 L197 161
+                             M327 151 L351 147
+                             M326 157 L349 161"
+                          fill="none" stroke-width="1.8"/>
+
+                    <!-- Ohjaamon reuna -->
+                    <path d="M213 178
+                             Q270 205 333 177"
+                          fill="none" stroke-width="7"/>
+
+                    <!-- Tassut -->
+                    <ellipse cx="243" cy="183"
+                             rx="14" ry="10"
+                             fill="#fffaf1" stroke-width="2"/>
+
+                    <ellipse cx="302" cy="183"
+                             rx="14" ry="10"
+                             fill="#fffaf1" stroke-width="2"/>
+
+                    <path d="M239 185 L239 189
+                             M246 185 L246 190
+                             M298 185 L298 189
+                             M305 185 L305 190"
+                          fill="none" stroke-width="1.3"/>
+
+                    <!-- Lähempi pääsiipi -->
+                    <path d="M307 247
+                             Q332 248 365 270
+                             Q290 321 105 391
+                             Q87 398 93 380
+                             Q101 363 120 349 Z"
+                          fill="url(#wing)"/>
+
+                    <path d="M161 328
+                             Q174 344 180 362
+                             M218 295
+                             Q239 313 244 333
+                             M282 260
+                             Q306 280 312 300"
+                          fill="none" stroke-width="2"/>
+
+                    <!-- Moottori -->
+                    <ellipse cx="422" cy="235"
+                             rx="53" ry="67"
+                             transform="rotate(20 422 235)"
+                             fill="url(#metal)"/>
+
+                    <ellipse cx="430" cy="237"
+                             rx="40" ry="53"
+                             transform="rotate(20 430 237)"
+                             fill="#625b5b"/>
+
+                    <g stroke="#ddd5cb" stroke-width="5">
+                        <path d="M430 237 L433 191"/>
+                        <path d="M430 237 L459 202"/>
+                        <path d="M430 237 L469 230"/>
+                        <path d="M430 237 L455 266"/>
+                        <path d="M430 237 L424 282"/>
+                        <path d="M430 237 L398 272"/>
+                        <path d="M430 237 L392 239"/>
+                        <path d="M430 237 L404 207"/>
+                    </g>
+
+                    <!-- Potkuri -->
+                    <path d="M425 232
+                             Q438 169 467 117
+                             Q473 108 483 113
+                             Q490 118 484 131
+                             Q463 190 440 242 Z"
+                          fill="#b9a49a"/>
+
+                    <path d="M440 239
+                             Q416 306 386 350
+                             Q378 362 368 355
+                             Q360 350 368 336
+                             Q393 279 425 231 Z"
+                          fill="#b9a49a"/>
+
+                    <path d="M465 126 L482 133
+                             M461 135 L479 142
+                             M371 335 L387 343
+                             M367 343 L382 351"
+                          fill="none"/>
+
+                    <ellipse cx="433" cy="238"
+                             rx="18" ry="21"
+                             transform="rotate(20 433 238)"
+                             fill="url(#metal)"/>
+
+                </g>
+
+            </svg>
+
+        </div>
+
+        <!-- Maavaihtoehdot -->
+        <div class="answers">
+
+            <button class="answer" type="button"
+                    aria-pressed="false"
+                    onclick="chooseCountry('Egypti', this)">
+                Egypti
+            </button>
+
+            <button class="answer" type="button"
+                    aria-pressed="false"
+                    onclick="chooseCountry('Japani', this)">
+                Japani
+            </button>
+
+            <button class="answer" type="button"
+                    aria-pressed="false"
+                    onclick="chooseCountry('Ranska', this)">
+                Ranska
+            </button>
+
+        </div>
+
+    </div>
+
+    <p id="destination" aria-live="polite"></p>
+
+</main>
+
+
+<!-- Pilvianimaatio -->
+<div class="cloud-transition"
+     id="cloudTransition"
+     aria-hidden="true">
+
+    <!-- Lentävä kissa pilvien päällä -->
+    <div class="cloud-flyer" id="cloudFlyer">
+
+        <svg viewBox="0 0 300 210"
+             xmlns="http://www.w3.org/2000/svg"
+             class="cloud-flyer-svg"
+             role="img"
+             aria-label="Kissa lentää vanhalla lentokoneella">
+
+            <defs>
+                <linearGradient id="flyMetal" x1="0%" y1="0%" x2="20%" y2="100%">
+                    <stop offset="0%" stop-color="#fff5e9"/>
+                    <stop offset="50%" stop-color="#ddd5cb"/>
+                    <stop offset="100%" stop-color="#aaa4a2"/>
+                </linearGradient>
+
+                <linearGradient id="flyWing" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#eee8de"/>
+                    <stop offset="100%" stop-color="#bbb4ae"/>
+                </linearGradient>
+
+                <radialGradient id="flyEye">
+                    <stop offset="0%" stop-color="#786657"/>
+                    <stop offset="100%" stop-color="#302c30"/>
+                </radialGradient>
+            </defs>
+
+            <g stroke="#50464c"
+               stroke-width="2.2"
+               stroke-linejoin="round"
+               stroke-linecap="round">
+
+                <!-- Takasiipi -->
+                <path d="M70 102 L38 118
+                         Q32 122 40 122
+                         L86 110 Z"
+                      fill="url(#flyWing)"/>
+
+                <!-- Pyrstö -->
+                <path d="M70 102 L52 63
+                         Q50 57 56 60
+                         Q69 69 84 96 Z"
+                      fill="url(#flyMetal)"/>
+
+                <!-- Kauempi pääsiipi -->
+                <path d="M130 110
+                         Q170 76 234 37
+                         Q249 28 256 33
+                         Q259 37 251 45
+                         L173 128 Z"
+                      fill="url(#flyWing)"/>
+
+                <!-- Rungon runko -->
+                <path d="M63 98
+                         Q91 85 131 86
+                         Q171 85 197 98
+                         Q212 107 214 123
+                         Q214 140 198 149
+                         Q171 156 130 139
+                         L68 113
+                         Q58 108 63 98 Z"
+                      fill="url(#flyMetal)"/>
+
+                <!-- Ohjaamo -->
+                <ellipse cx="128" cy="94" rx="31" ry="13" fill="#79686d"/>
+                <ellipse cx="128" cy="93" rx="25" ry="9" fill="#50464c"/>
+
+                <!-- Kissan vartalo -->
+                <ellipse cx="126" cy="82" rx="15" ry="19" fill="#fffaf1"/>
+
+                <!-- Korvat -->
+                <path d="M98 56
+                         Q94 38 100 30
+                         Q111 34 118 45 Z"
+                      fill="#e1d8cd"/>
+
+                <path d="M137 45
+                         Q151 33 159 34
+                         Q162 46 154 59 Z"
+                      fill="#e1d8cd"/>
+
+                <path d="M102 49
+                         Q107 40 112 43
+                         L112 51 Z"
+                      fill="#edb6c4" stroke="none"/>
+
+                <path d="M145 49
+                         Q150 42 154 41
+                         L151 52 Z"
+                      fill="#edb6c4" stroke="none"/>
+
+                <!-- Kissan pää -->
+                <path d="M98 55
+                         Q101 41 119 40
+                         Q131 36 143 41
+                         Q158 43 162 60
+                         Q170 76 157 86
+                         Q145 94 129 92
+                         Q109 94 99 82
+                         Q90 71 98 55 Z"
+                      fill="#fffaf1"/>
+
+                <!-- Harmaat kuviot -->
+                <path d="M104 50 Q112 42 121 45 L118 58 Z"
+                      fill="#c8bfb6" stroke="none"/>
+                <path d="M126 42 Q131 39 137 42 L133 57 Z"
+                      fill="#c8bfb6" stroke="none"/>
+                <path d="M141 44 Q153 47 158 55 L149 58 Z"
+                      fill="#c8bfb6" stroke="none"/>
+
+                <!-- Silmät -->
+                <ellipse cx="116" cy="66" rx="8" ry="9" fill="url(#flyEye)"/>
+                <ellipse cx="142" cy="66" rx="8" ry="9" fill="url(#flyEye)"/>
+
+                <!-- Heijastukset -->
+                <circle cx="113" cy="62" r="3" fill="#ffffff" stroke="none"/>
+                <circle cx="139" cy="62" r="3" fill="#ffffff" stroke="none"/>
+
+                <!-- Posket -->
+                <ellipse cx="106" cy="76" rx="5" ry="2.8" fill="#f3c5d0" stroke="none"/>
+                <ellipse cx="153" cy="76" rx="5" ry="2.8" fill="#f3c5d0" stroke="none"/>
+
+                <!-- Nenä -->
+                <path d="M124 75 Q128 73 132 75 L128 79 Z"
+                      fill="#d88aa3" stroke-width="1.2"/>
+
+                <!-- Suu -->
+                <path d="M128 79
+                         Q124 84 120 81
+                         M128 79
+                         Q132 84 136 81"
+                      fill="none" stroke-width="1.5"/>
+
+                <!-- Viikset -->
+                <path d="M105 80 L93 78
+                         M152 80 L164 78"
+                      fill="none" stroke-width="1.3"/>
+
+                <!-- Tassut -->
+                <ellipse cx="113" cy="97" rx="6" ry="4.5" fill="#fffaf1" stroke-width="1.5"/>
+                <ellipse cx="140" cy="97" rx="6" ry="4.5" fill="#fffaf1" stroke-width="1.5"/>
+
+                <!-- Lähempi pääsiipi -->
+                <path d="M144 129
+                         Q156 130 172 141
+                         Q135 168 51 200
+                         Q42 203 45 194
+                         Q48 186 58 179 Z"
+                      fill="url(#flyWing)"/>
+
+                <!-- Moottori -->
+                <ellipse cx="199" cy="122"
+                         rx="25" ry="31"
+                         transform="rotate(20 199 122)"
+                         fill="url(#flyMetal)"/>
+
+                <ellipse cx="203" cy="123"
+                         rx="18" ry="24"
+                         transform="rotate(20 203 123)"
+                         fill="#625b5b"/>
+
+                <!-- Potkuri -->
+                <path d="M199 120
+                         Q206 91 219 66
+                         Q223 61 228 64
+                         Q231 67 228 74
+                         Q217 104 206 124 Z"
+                      fill="#b9a49a"/>
+
+                <path d="M206 123
+                         Q195 154 181 175
+                         Q176 181 171 178
+                         Q168 175 172 169
+                         Q184 142 199 119 Z"
+                      fill="#b9a49a"/>
+
+                <ellipse cx="203" cy="123"
+                         rx="8" ry="9"
+                         transform="rotate(20 203 123)"
+                         fill="url(#flyMetal)"/>
+
+            </g>
+        </svg>
+
+    </div>
+
+    <!-- Pilvet -->
+    <svg viewBox="0 0 1000 700"
+         preserveAspectRatio="none">
+
+        <!-- Taustapilvet -->
+        <g fill="#e8e5ef">
+            <circle cx="30" cy="20" r="130"/>
+            <circle cx="260" cy="0" r="150"/>
+            <circle cx="520" cy="30" r="170"/>
+            <circle cx="800" cy="0" r="140"/>
+            <circle cx="1000" cy="30" r="160"/>
+        </g>
+
+        <!-- Valkoiset pilvet -->
+        <g fill="#fffafc">
+            <rect x="0" y="0" width="1000" height="700"/>
+            <circle cx="0" cy="40" r="100"/>
+            <circle cx="120" cy="10" r="130"/>
+            <circle cx="290" cy="50" r="130"/>
+            <circle cx="440" cy="-10" r="150"/>
+            <circle cx="610" cy="30" r="140"/>
+            <circle cx="790" cy="0" r="150"/>
+            <circle cx="970" cy="35" r="140"/>
+        </g>
+
+        <!-- Vaaleanpunaiset varjot -->
+        <g fill="#f4eaf1">
+            <circle cx="80" cy="650" r="170"/>
+            <circle cx="300" cy="680" r="180"/>
+            <circle cx="550" cy="650" r="150"/>
+            <circle cx="790" cy="690" r="180"/>
+            <circle cx="1000" cy="650" r="160"/>
+        </g>
+
+    </svg>
+</div>
 
 </body>
 </html>
