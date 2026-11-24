@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 40" preserveAspectRatio="none">
+  <!-- левое ухо -->
+  <path d="M38 40 Q44 4 56 3 Q64 2 96 32" fill="#fff0b3" stroke="#333" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M50 40 Q54 14 59 13 Q64 12 82 34 Z" fill="#ff9fd0"/>
+  <!-- правое ухо -->
+  <path d="M184 32 Q216 2 224 3 Q236 4 242 40" fill="#fff0b3" stroke="#333" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M198 34 Q216 12 221 13 Q226 14 230 40 Z" fill="#ff9fd0"/>
+</svg>
